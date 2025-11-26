@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+void GetSet( int a[], int *n) {
+    int i ; 
+
+    printf("Enter number of element :");
+    scanf("%d", n);
+    
+    for(i = 0; i < *n; i++) {
+        printf("Enter element %d: ", i + 1);
+        scanf("%d", &a[i]);
+    }
+}
+
+int main() {
+    int data[100];
+    int num;
+
+    GetSet(data, &num);
+
+    return 0;
+}
