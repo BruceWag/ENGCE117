@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main() {
+    int n ;
+    int i ;
+
+    printf("Please enter the number for displaying the message :");
+    scanf("%d" , &n);
+
+    for (i = 0; i < n; i++) {
+        printf("Hello World\n");
+    }
+    return 0;
+}
