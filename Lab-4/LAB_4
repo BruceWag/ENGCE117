@@ -1,13 +1,28 @@
 #include <stdio.h>
 
-int main() {
-    int N, sum = 0;
-    scanf("%d", &N);
-    for (int i = 1; i <= N; i++) {
-        sum += i;
-    }
+void GetSet(int set[], int n) {
+    int i;
 
-    printf("%d", sum);
+    printf("Enter the elements:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &set[i]);
+    }
+}
+
+int main() {
+    int set[100];
+    int n;
+    int i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    GetSet(set, n);
+
+    printf("You entered: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", set[i]);
+    }
 
     return 0;
 }
