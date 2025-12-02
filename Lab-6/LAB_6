@@ -1,44 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int* GetMatrix(int *row, int *col) {
-    int i, j;
+int* GetMatrix( int *row, int *col ) {
+    int i;
     int *arr;
 
-    printf("Enter number of rows: ");
+    printf("Enter number of rows : ");
     scanf("%d", row);
 
-    printf("Enter number of columns: ");
+    printf("Enter number of columns : ");
     scanf("%d", col);
 
-    arr = (int*)malloc((*row) * (*col) * sizeof(int));
+    arr = (int*)malloc( (*row) * (*col) * sizeof(int) );
+
+    if(arr == NULL){
+        printf("Memory allocation failed\n");
+        exit(1);
+    }
 
     printf("Enter matrix values:\n");
-    for (i = 0; i < *row; i++) {
-        for (j = 0; j < *col; j++) {
-            scanf("%d", &arr[i * (*col) + j]);
-        }
+    for(i = 0; i < (*row) * (*col); i++){
+        printf("value[%d] = ", i);
+        scanf("%d", &arr[i]);
     }
 
     return arr;
 }
 
 int main() {
-    int *data;
-    int m, n;
-    int i, j;
+    int *data, m, n;
+    data = GetMatrix( &m, &n );
 
-    data = GetMatrix(&m, &n);
+    printf("\nMatrix received (%d x %d):\n", m, n);
 
-    printf("\nMatrix you entered:\n");
-    for (i = 0; i < m; i++) {
-        for (j = 0; j < n; j++) {
-            printf("%d ", data[i * n + j]);
+    for(int i=0; i<m; i++){
+        for(int j=0; j<n; j++){
+            printf("%d ", data[i*n + j]);
         }
         printf("\n");
     }
 
     free(data);
-
     return 0;
 }
