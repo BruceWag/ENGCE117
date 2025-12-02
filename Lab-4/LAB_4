@@ -1,28 +1,32 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-void GetSet(int set[], int n) {
-    int i;
+int GetSet( int **arr ) {
+    int n, i;
 
-    printf("Enter the elements:\n");
-    for (i = 0; i < n; i++) {
-        scanf("%d", &set[i]);
+    printf("");
+    scanf("%d", &n);
+
+    *arr = (int *)malloc(n * sizeof(int));
+
+    for(i = 0; i < n; i++) {
+        printf("", i + 1);
+        scanf("%d", &((*arr)[i]));
     }
+
+    return n;
 }
 
 int main() {
-    int set[100];
-    int n;
-    int i;
+    int *data, num;
 
-    printf("Enter number of elements: ");
-    scanf("%d", &n);
+    num = GetSet(&data);
 
-    GetSet(set, n);
-
-    printf("You entered: ");
-    for (i = 0; i < n; i++) {
-        printf("%d ", set[i]);
+    printf("");
+    for(int i = 0; i < num; i++) {
+        printf("%d ", data[i]);
     }
 
+    free(data);
     return 0;
 }
