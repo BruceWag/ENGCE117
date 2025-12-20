@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+/* โครงสร้างข้อมูลนักเรียน */
+struct student {
+    char name[20];
+    int age;
+    char sex;
+    float gpa;
+};
+
+/* Prototype ตามโจทย์ */
+void GetStudent(struct student child[][10], int *room);
+
+/* main ตาม Pre-code */
+int main() {
+    struct student children[20][10];
+    int group;
+
+    GetStudent(children, &group);
+
+    return 0;
+}
+
+/* ฟังก์ชันรับข้อมูลนักเรียน */
+void GetStudent(struct student child[][10], int *room) {
+    int i, j;
+
+    /* รับจำนวนห้องเรียน */
+    scanf("%d", room);
+
+    /* รับข้อมูลนักเรียน ห้องละ 10 คน */
+    for (i = 0; i < *room; i++) {
+        for (j = 0; j < 10; j++) {
+            scanf("%s", child[i][j].name);
+            scanf("%d", &child[i][j].age);
+            scanf(" %c", &child[i][j].sex);
+            scanf("%f", &child[i][j].gpa);
+        }
+    }
+}
